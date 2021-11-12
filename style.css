@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-section{
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 80%;
+    background: rgba(128, 128, 128, 0.418);
+    border-radius: 1rem ;
+    border: 2px solid gray;
+}
+
+h1{
+    text-align: center;
+    margin: 0.5rem 0;
+    letter-spacing: 2px;
+    color: grey;
+    text-transform: uppercase;
+}
+
+.alertcontainer{
+    margin: 1rem 0;
+}
+
+.data-section{
+    width: 82%;
+    margin: 1rem auto;
+}
