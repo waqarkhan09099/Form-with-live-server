@@ -1,4 +1,4 @@
-import 'axios'
+
 const form = document.getElementById('form')
 
 
