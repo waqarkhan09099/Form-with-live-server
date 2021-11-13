@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background: linear-gradient(45deg,transparent,rgba(127, 205, 241, 0.747));
+}
+
 .form-section{
     margin: 2rem auto;
     padding: 2rem;
@@ -17,7 +21,7 @@ h1{
     text-align: center;
     margin: 0.5rem 0;
     letter-spacing: 2px;
-    color: grey;
+    color: black;
     text-transform: uppercase;
 }
 
@@ -28,4 +32,16 @@ h1{
 .data-section{
     width: 82%;
     margin: 1rem auto;
+}
+
+.userName{
+    width: 15%;
+}
+
+.buttons{
+    width: 12%;
+}
+
+table{
+    border-radius: 10rem;
 }
