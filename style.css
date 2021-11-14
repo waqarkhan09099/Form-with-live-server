@@ -1,47 +1,98 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(45deg,transparent,rgba(127, 205, 241, 0.747));
+body {
+  background: linear-gradient(45deg, transparent, rgba(127, 205, 241, 0.747)),url(./nat-4.jpg)no-repeat top/cover;
+  background-position: 50%;
 }
 
-.form-section{
-    margin: 2rem auto;
-    padding: 2rem;
-    width: 80%;
-    background: rgba(128, 128, 128, 0.418);
-    border-radius: 1rem ;
-    border: 2px solid gray;
+.form-section {
+  margin: 2rem auto;
+  padding: 2rem;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.548);
+  border-radius: 1rem;
+  border: 2px solid gray;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.473) ;
+  animation: form-appear 1s ease-out backwards;
 }
 
-h1{
-    text-align: center;
-    margin: 0.5rem 0;
-    letter-spacing: 2px;
-    color: black;
-    text-transform: uppercase;
+h1 {
+  text-align: center;
+  margin: 0.5rem 0;
+  letter-spacing: 2px;
+  color: black;
+  text-transform: uppercase;
 }
 
-.alertcontainer{
-    margin: 1rem 0;
+.alertcontainer {
+  margin: 1rem 0;
 }
 
-.data-section{
-    width: 82%;
-    margin: 1rem auto;
+.data-section {
+  width: 82%;
+  margin: 1rem auto;
+  padding: 0.3rem 0;
+  background: rgba(255, 255, 255, 0.548);
+  border: 2px solid gray;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.473) ;
+  animation: table-appear 1s ease-out backwards;
+  animation-delay: 1s;
+  transition: all 2s ease;
 }
 
-.userName{
-    width: 15%;
+.userName {
+  width: 15%;
 }
 
-.buttons{
-    width: 12%;
+.buttons {
+  width: 12%;
 }
 
-table{
-    border-radius: 10rem;
+label {
+  font-weight: bold;
+}
+tr{
+  text-align: center;
+  transition: all 1s ease;
+
+}
+
+tr:hover td{
+  transform: scale(1.04);
+  -webkit-transition-: all 2s;
+
+  
+}
+
+tr:hover:not(first-of-type) {
+  background: rgba(128, 128, 128, 0.37);
+  
+}
+
+@keyframes form-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes table-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

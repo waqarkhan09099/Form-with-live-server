@@ -65,13 +65,14 @@ function updateUser(id){
 function deleteUser(id){
     confirm("Are You Sure! User will permenantly delete")
     axios.delete(`https://waqar-server-mongodb.herokuapp.com/api/user/${id}`).then((e)=>{
+        // getPost()
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
             User Are Deleted!!!
             </div>`
+        getPost()
         setTimeout(() => {
             document.getElementById('alertcontainer').innerHTML = ''
         }, 3000)
-        getPost()
         alert(`User Deleted!!!!`)
     })
 }
