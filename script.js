@@ -21,9 +21,9 @@ function getPost() {
 
 }
 
-function editUser(id){
+function editUser(id) {
     console.log("update checked")
-    document.getElementById(`${id}`).innerHTML=`
+    document.getElementById(`${id}`).innerHTML = `
     <tr id="${id}">
         <th scope="row">${id}</th>
         <td class="userName"><input type="text" id="${id}_Username" class="form-control" ></td>
@@ -36,18 +36,23 @@ function editUser(id){
     `
 }
 
-function updateUser(id){
-    const name=document.getElementById(`${id}_Username}`).value
-    const email=document.getElementById(`${id}_Useremail}`).value
-    const address=document.getElementById(`${id}_Useraddress}`).value 
+function updateUser(id) {
+    console.log(id)
+    console.log(typeof (id))
+    console.log(`${id}_Username`)
+    console.log(document.getElementById(`${id}_Username`))
+
+    const name = document.getElementById(`${id}_Username`).value
+    const email = document.getElementById(`${id}_Useremail`).value
+    const address = document.getElementById(`${id}_Useraddress`).value
 
     // console.log(updateName,updateEmail,updateAddress)
-    confirm("Are You Sure!! You wanna Update Your Information.")   
-    axios.put(`https://waqar-server-mongodb.herokuapp.com/api/user/${id}`,{
+    confirm("Are You Sure!! You wanna Update Your Information.")
+    axios.put(`https://waqar-server-mongodb.herokuapp.com/api/user/${id}`, {
         name,
         email,
         address
-    }).then(()=>{
+    }).then(() => {
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
             User Are Updated!!!
             </div>`
@@ -56,15 +61,15 @@ function updateUser(id){
             document.getElementById('alertcontainer').innerHTML = ''
         }, 3000)
         getPost()
-    }).catch(err=>{
+    }).catch(err => {
         alert(err)
     })
 }
 
 
-function deleteUser(id){
+function deleteUser(id) {
     confirm("Are You Sure! User will permenantly delete")
-    axios.delete(`https://waqar-server-mongodb.herokuapp.com/api/user/${id}`).then((e)=>{
+    axios.delete(`https://waqar-server-mongodb.herokuapp.com/api/user/${id}`).then((e) => {
         // getPost()
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
             User Are Deleted!!!
