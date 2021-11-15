@@ -53,6 +53,7 @@ function updateUser(id) {
         email,
         address
     }).then(() => {
+        getPost()
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
             User Are Updated!!!
             </div>`
