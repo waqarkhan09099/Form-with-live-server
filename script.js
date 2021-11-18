@@ -2,9 +2,11 @@ const form = document.getElementById('form')
 
 
 
+let users;
 function getPost() {
     axios.get('https://waqar-server-mongodb.herokuapp.com/api/users').then(responce => {
         console.log(responce)
+        users=responce.data
         document.getElementById('data_row').innerHTML = responce.data.map((data, index) => `
             <tr id="${data._id}">
               <th scope="row">${index === 0 ? '1' : index + 1}</th>
@@ -12,7 +14,7 @@ function getPost() {
               <td>${data.email}</td>
               <td>${data.address}</td>
               <td class="buttons" id="buttons">
-                <button type="button" id="edit" onclick="editUser('${data._id}')" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
+                <button type="button" id="edit" onclick="editUser('${data._id}',${index})" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
                 <button type="button" onclick="deleteUser('${data._id}')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
@@ -21,14 +23,15 @@ function getPost() {
 
 }
 
-function editUser(id) {
+function editUser(id,index) {
     console.log("update checked")
+    let userObj=users[index]
     document.getElementById(`${id}`).innerHTML = `
     <tr id="${id}">
         <th scope="row">${id}</th>
-        <td class="userName"><input type="text" id="${id}_Username" class="form-control" ></td>
-        <td><input type="email"  class="form-control" id="${id}_Useremail" ></td>
-        <td><input type="text" id="${id}_Useraddress" class="form-control" ></td>
+        <td class="userName"><input type="text" id="${id}_Username" placeholder="${userObj.name}" class="form-control" ></td>
+        <td><input type="email" placeholder="${userObj.email}"  class="form-control" id="${id}_Useremail" ></td>
+        <td><input type="text" id="${id}_Useraddress" placeholder="${userObj.address}" class="form-control" ></td>
         <td class="buttons" id="buttons">
         <button type="button" id="update" onclick="updateUser('${id}')" class="btn btn-success">Update</button>
         </td>
