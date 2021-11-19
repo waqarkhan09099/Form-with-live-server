@@ -57,7 +57,10 @@ function updateUser(id) {
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
         User Are Updated!!!
         </div>`
-        console.log(`update Call ${getPost()}`)
+        setTimeout(() => {
+            document.getElementById('alertcontainer').innerHTML = ''
+        }, 3000)
+        getPost()
         alert(`User Updated!!!!`)
     }).catch(err => {
         alert(err)
@@ -72,6 +75,9 @@ function deleteUser(id) {
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
             User Are Deleted!!!
             </div>`
+        setTimeout(() => {
+            document.getElementById('alertcontainer').innerHTML = ''
+        }, 3000)
         getPost()
         alert(`User Deleted!!!!`)
     })
