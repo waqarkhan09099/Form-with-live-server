@@ -6,7 +6,7 @@ let users;
 function getPost() {
     axios.get('https://waqar-server-mongodb.herokuapp.com/api/users').then(responce => {
         console.log(responce)
-        users=responce.data
+        users = responce.data
         document.getElementById('data_row').innerHTML = responce.data.map((data, index) => `
             <tr id="${data._id}">
               <th scope="row">${index === 0 ? '1' : index + 1}</th>
@@ -23,9 +23,9 @@ function getPost() {
 
 }
 
-function editUser(id,index) {
+function editUser(id, index) {
     console.log("update checked")
-    let userObj=users[index]
+    let userObj = users[index]
     document.getElementById(`${id}`).innerHTML = `
     <tr id="${id}">
         <th scope="row">${id}</th>
@@ -41,8 +41,6 @@ function editUser(id,index) {
 
 function updateUser(id) {
     console.log(id)
-    console.log(typeof (id))
-    console.log(`${id}_Username`)
     console.log(document.getElementById(`${id}_Username`))
 
     const name = document.getElementById(`${id}_Username`).value
@@ -56,15 +54,11 @@ function updateUser(id) {
         email,
         address
     }).then(() => {
-        getPost()
         document.getElementById('alertcontainer').innerHTML = `<div class="alert alert-success" role="alert">
-            User Are Updated!!!
-            </div>`
+        User Are Updated!!!
+        </div>`
+        console.log(`update Call ${getPost()}`)
         alert(`User Updated!!!!`)
-        setTimeout(() => {
-            document.getElementById('alertcontainer').innerHTML = ''
-        }, 3000)
-        getPost()
     }).catch(err => {
         alert(err)
     })
@@ -79,9 +73,6 @@ function deleteUser(id) {
             User Are Deleted!!!
             </div>`
         getPost()
-        setTimeout(() => {
-            document.getElementById('alertcontainer').innerHTML = ''
-        }, 3000)
         alert(`User Deleted!!!!`)
     })
 }
